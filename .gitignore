@@ -1,0 +1,41 @@
+/.venv/
+
+# created by virtualenv automatically
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# VSCode and IDE configs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Chroma vector database
+chroma_db/
+
+# Local environment and config
+config.json
+memory.json
+
+# Logs
+*.log
+
+# Jupyter Notebook checkpoints (if you use notebooks)
+.ipynb_checkpoints/
+
+# Misc
+*.bak
+*.swp
