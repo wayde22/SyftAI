@@ -49,3 +49,21 @@ source .venv/bin/activate         # On Windows: .venv\Scripts\activate
 }
 ```
 
+## Dependencies
+
+To run Syft, make sure you have the following Python packages installed:
+
+- `streamlit`
+- `openai`
+- `langchain`
+- `langchain_chroma`
+- `langchain_openai`
+- `chromadb` (for Chroma vector storage)
+- `tiktoken` (required by some OpenAI models)
+
+### Install All Dependencies
+
+You can install these with pip:
+
+```bash
+pip install streamlit openai langchain langchain_chroma langchain_openai chromadb tiktoken
