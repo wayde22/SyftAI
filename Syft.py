@@ -4,7 +4,6 @@ import openai
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 
-
 # --- Load Config ---
 CONFIG_FILE = "config.json"
 if not os.path.exists(CONFIG_FILE):

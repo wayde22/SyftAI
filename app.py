@@ -51,7 +51,7 @@ st.markdown("""
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 if "memory_on" not in st.session_state:
-    st.session_state.memory_on = True
+    st.session_state.memory_on = False
 if "memory_window" not in st.session_state:
     st.session_state.memory_window = DEFAULT_MEMORY_WINDOW
 
