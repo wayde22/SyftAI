@@ -2,7 +2,8 @@ import os
 import json
 import openai
 from langchain_openai import OpenAIEmbeddings
-from langchain_chroma import Chroma
+from langchain_qdrant import QdrantVectorStore
+from qdrant_client import QdrantClient
 
 # --- Load Config ---
 CONFIG_FILE = "config.json"
@@ -12,7 +13,7 @@ with open(CONFIG_FILE, "r", encoding="utf-8") as f:
     config = json.load(f)
 
 OPENAI_API_KEY = config["openai_api_key"]
-CHROMA_PATH = config.get("chroma_path", "./chroma_db")
+QDRANT_PATH = config.get("qdrant_path", "./qdrant_data")
 DEFAULT_CHUNKS = config.get("default_chunks", 5)
 DEFAULT_MEMORY_WINDOW = config.get("memory_window", 5)
 
@@ -49,7 +50,12 @@ def load_memory():
 
 def get_vectorstore():
     embeddings = OpenAIEmbeddings()
-    return Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
+    client = QdrantClient(path=QDRANT_PATH)
+    return QdrantVectorStore(
+        client=client,
+        collection_name=COLLECTION_NAME,
+        embedding=embeddings,  # <--- CORRECT param name
+    )
 
 def get_code_context(question, n_chunks=DEFAULT_CHUNKS):
     vectorstore = get_vectorstore()
