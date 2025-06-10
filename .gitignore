@@ -29,6 +29,7 @@ chroma_db/
 # Local environment and config
 config.json
 memory.json
+index_state.json
 
 # Logs
 *.log
